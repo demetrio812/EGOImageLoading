@@ -28,7 +28,7 @@
 #import "EGOImageLoader.h"
 
 @implementation EGOImageView
-@synthesize imageURL, placeholderImage, delegate;
+@synthesize imageURL, placeholderImage, delegate, animationUrls, currentImagePosition;
 
 - (id)initWithPlaceholderImage:(UIImage*)anImage {
 	return [self initWithPlaceholderImage:anImage delegate:nil];	
@@ -38,6 +38,8 @@
 	if((self = [super initWithImage:anImage])) {
 		self.placeholderImage = anImage;
 		self.delegate = aDelegate;
+        self.animationUrls=nil;
+        timer = nil;
 	}
 	
 	return self;
@@ -94,6 +96,51 @@
 	if([self.delegate respondsToSelector:@selector(imageViewFailedToLoadImage:error:)]) {
 		[self.delegate imageViewFailedToLoadImage:self error:[[notification userInfo] objectForKey:@"error"]];
 	}
+}
+
+#pragma mark -
+#pragma mark Slideshow support
+
+- (void)startAnimating {
+    if (self.animationUrls==nil) {
+        [super startAnimating];    
+    } else {
+        // Animating URLs
+        currentImagePosition=-1;
+        currentRepetition=0;
+        [self nextSlideshowPhoto];
+        timer = [NSTimer scheduledTimerWithTimeInterval:(self.animationDuration/[animationUrls count]) target:self selector:@selector(nextSlideshowPhoto) userInfo:nil repeats:YES];
+    }
+}
+
+- (void)stopAnimating {
+    if (self.animationUrls==nil) {
+        [super stopAnimating];    
+    } else {
+        // Stop animation
+        [timer invalidate];
+        timer = nil;
+    }
+}
+
+// Private method
+- (void)nextSlideshowPhoto {
+    currentImagePosition++;
+    if (currentImagePosition==[animationUrls count]) {
+        currentImagePosition=0;
+        currentRepetition++;
+        if (self.animationRepeatCount>0 && currentRepetition==self.animationRepeatCount) {
+            [self stopAnimating];
+            return;
+        }
+    }
+    NSLog(@"Showing: %@", [animationUrls objectAtIndex:currentImagePosition]);
+    [self setImageURL:[animationUrls objectAtIndex:currentImagePosition]];
+}
+
+// Cannot override isAnimating because if I return YES with no UIImageView animation it doesn't refresh the view with the new image
+- (BOOL)isAnimatingUrl {
+    return (timer!=nil);
 }
 
 #pragma mark -

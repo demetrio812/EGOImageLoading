@@ -33,6 +33,12 @@
 	NSURL* imageURL;
 	UIImage* placeholderImage;
 	id<EGOImageViewDelegate> delegate;
+    
+    // Slideshow support
+    NSArray *animationUrls;
+    int currentImagePosition;
+    int currentRepetition;
+    NSTimer *timer;
 }
 
 - (id)initWithPlaceholderImage:(UIImage*)anImage; // delegate:nil
@@ -40,9 +46,19 @@
 
 - (void)cancelImageLoad;
 
+// Slideshow support
+- (void)startAnimating;
+- (void)stopAnimating;
+- (BOOL)isAnimatingUrl;
+
+@property(nonatomic, assign) int currentImagePosition; 
+
 @property(nonatomic,retain) NSURL* imageURL;
 @property(nonatomic,retain) UIImage* placeholderImage;
 @property(nonatomic,retain) id<EGOImageViewDelegate> delegate;
+
+@property(nonatomic,retain) NSArray *animationUrls;
+
 @end
 
 @protocol EGOImageViewDelegate<NSObject>

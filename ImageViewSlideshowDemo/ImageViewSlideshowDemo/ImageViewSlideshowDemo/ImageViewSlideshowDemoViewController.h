@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EGOImageView.h"
 
 @interface ImageViewSlideshowDemoViewController : UIViewController {
     
+    EGOImageView *imageView;
 }
+
+@property (nonatomic, retain) IBOutlet EGOImageView *imageView;
 
 @end
