@@ -134,7 +134,6 @@
             return;
         }
     }
-    NSLog(@"Showing: %@", [animationUrls objectAtIndex:currentImagePosition]);
     [self setImageURL:[animationUrls objectAtIndex:currentImagePosition]];
 }
 

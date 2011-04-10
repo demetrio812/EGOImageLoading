@@ -26,6 +26,7 @@
 		B0CA6A1D1352077800CA81C8 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CA6A1A1352077800CA81C8 /* EGOImageLoadConnection.m */; };
 		B0CA6A1E1352077800CA81C8 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CA6A1C1352077800CA81C8 /* EGOImageLoader.m */; };
 		B0CA6A221352078300CA81C8 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CA6A211352078300CA81C8 /* EGOCache.m */; };
+		B0CA6A26135252C900CA81C8 /* EGOImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B0CA6A25135252C900CA81C8 /* EGOImageButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		B0CA6A1C1352077800CA81C8 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
 		B0CA6A201352078300CA81C8 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
 		B0CA6A211352078300CA81C8 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		B0CA6A24135252C900CA81C8 /* EGOImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageButton.h; sourceTree = "<group>"; };
+		B0CA6A25135252C900CA81C8 /* EGOImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +99,7 @@
 		B0CA69CC135206FA00CA81C8 = {
 			isa = PBXGroup;
 			children = (
+				B0CA6A23135252C900CA81C8 /* EGOImageButton */,
 				B0CA6A1F1352078300CA81C8 /* EGOCache */,
 				B0CA6A181352077800CA81C8 /* EGOImageLoader */,
 				B0CA6A141352075D00CA81C8 /* EGOImageView */,
@@ -200,6 +204,16 @@
 			);
 			name = EGOCache;
 			path = ../../EGOCache;
+			sourceTree = "<group>";
+		};
+		B0CA6A23135252C900CA81C8 /* EGOImageButton */ = {
+			isa = PBXGroup;
+			children = (
+				B0CA6A24135252C900CA81C8 /* EGOImageButton.h */,
+				B0CA6A25135252C900CA81C8 /* EGOImageButton.m */,
+			);
+			name = EGOImageButton;
+			path = ../../EGOImageButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +328,7 @@
 				B0CA6A1D1352077800CA81C8 /* EGOImageLoadConnection.m in Sources */,
 				B0CA6A1E1352077800CA81C8 /* EGOImageLoader.m in Sources */,
 				B0CA6A221352078300CA81C8 /* EGOCache.m in Sources */,
+				B0CA6A26135252C900CA81C8 /* EGOImageButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

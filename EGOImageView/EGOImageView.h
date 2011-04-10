@@ -51,13 +51,13 @@
 - (void)stopAnimating;
 - (BOOL)isAnimatingUrl;
 
-@property(nonatomic, assign) int currentImagePosition; 
+@property(nonatomic,assign) int currentImagePosition;
+@property(nonatomic,retain) NSArray *animationUrls; 
 
 @property(nonatomic,retain) NSURL* imageURL;
 @property(nonatomic,retain) UIImage* placeholderImage;
 @property(nonatomic,retain) id<EGOImageViewDelegate> delegate;
 
-@property(nonatomic,retain) NSArray *animationUrls;
 
 @end
 
